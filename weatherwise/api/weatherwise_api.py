@@ -42,5 +42,22 @@ def get_weather_data(coordinates):
     weather.forecasts[day].temperature_min
     weather.forecasts[day].temperature_max
     weather.forecasts[day].weather_classification   (string)
+    weather.forecasts[day].precipitation_chance
 
     """
+if __name__ == '__main__':
+    location = get_location_data('Fargo')
+    weather = get_weather_data(location.coordinates)
+    print(weather)
+    print(weather.current.temperature)
+    print(weather.current.temperature_apparent)
+    print(weather.current.temperature_min)
+    print(weather.current.temperature_max)
+    print(weather.current.weather_classification)          
+    print(weather.current.wind_speed)
+    print(weather.current.wind_direction)                  
+    print(weather.forecasts[0].date)                     
+    print(weather.forecasts[0].temperature_min)
+    print(weather.forecasts[0].temperature_max)
+    print(weather.forecasts[0].weather_classification)
+    print(weather.forecasts[0].precipitation_chance)

@@ -23,6 +23,7 @@ class WeatherData:
             self.weather_classification = get_weather_classification(data)
             self.wind_speed = get_wind_speed(data)
             self.wind_direction = get_wind_direction(data)
+            self.precipitation_chance = get_precipitation_chance(data,0)
 
         def __str__(self):
             return ('Temperature: ' + str(self.temperature) + ' \n'
@@ -31,7 +32,8 @@ class WeatherData:
                     'Max Temperature: ' + str(self.temperature_max) + ' \n'
                     'Weather Classification: ' + self.weather_classification + ' \n'
                     'Wind Speed: ' + str(self.wind_speed) + ' \n'
-                    'Wind Direction: ' + str(self.wind_direction) + ' \n')
+                    'Wind Direction: ' + str(self.wind_direction) + ' \n'
+                    'Precipitation Chance: ' + str(self.precipitation_chance) + ' \n')
 
     class Forecast:
         def __init__(self, data, day):
@@ -39,12 +41,14 @@ class WeatherData:
             self.temperature_min = get_temperature_min(data,day)
             self.temperature_max = get_temperature_max(data,day)
             self.weather_classification = get_weather_classification(data,False, day)
+            self.precipitation_chance = get_precipitation_chance(data,day)
 
         def __repr__(self):
             return ('Date: ' + self.date + ' \n'
                     'Min Temperature: ' + str(self.temperature_min) + ' \n'
                     'Max Temperature: ' + str(self.temperature_max) + ' \n'
-                    'Weather Classification: ' + self.weather_classification + ' \n')
+                    'Weather Classification: ' + self.weather_classification + ' \n'
+                    'Precipitation Chance: ' + str(self.precipitation_chance) + ' \n')
 
 def get_temperature(data):
     return data['current']['temperature_2m']
@@ -132,6 +136,9 @@ def get_wind_direction(data):
 def get_date(data, day):
     return data['daily']['time'][day]
 
+def get_precipitation_chance(data, day):
+    return data['daily']['precipitation_probability_max'][day]
+
 def parse_coordinates(coordinates):
     return coordinates.split(',')
 
@@ -143,7 +150,7 @@ def valid_data(data):
 def get_json(lat_and_lon):
     lat = lat_and_lon[0]
     lon = lat_and_lon[1]
-    web_address = 'https://api.open-meteo.com/v1/forecast?latitude=' + lat + '&longitude=' + lon + '&current=temperature_2m,apparent_temperature,weather_code,wind_speed_10m,wind_direction_10m&daily=weather_code,temperature_2m_max,temperature_2m_min&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch&timezone=auto'
+    web_address = 'https://api.open-meteo.com/v1/forecast?latitude=' + lat + '&longitude=' + lon + '&current=temperature_2m,apparent_temperature,weather_code,wind_speed_10m,wind_direction_10m&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch&timezone=auto'
     with urllib.request.urlopen(web_address) as url:
         data = json.load(url)
         return data
