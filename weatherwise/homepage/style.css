@@ -1,0 +1,67 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    font-family: "Arial", sans-serif;
+    background-image: url('images/background3.jpeg');
+    background-size: cover;
+    background-repeat: repeat-x;
+    animation: moveBackground 200s linear infinite;
+    display: flex;
+    flex-direction: column;
+}
+
+@keyframes moveBackground {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: -2000px 0;
+    }
+}
+
+.navbar .nav-link {
+    color: white;
+}
+
+.navbar .nav-link:hover {
+    color: black;
+}
+
+.main {
+    flex-grow: 1;
+}
+
+h1,
+h2,
+h4 {
+    color: black;
+}
+
+.img-thumbnail {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+.footer {
+    background-color: #007BFF;
+    color: white;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    
+}
+
+.form-control,
+.btn {
+    border-radius: 5px;
+}
+
+.btn-primary {
+    background-color: #007BFF;
+    border: none;
+}
