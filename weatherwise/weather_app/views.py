@@ -11,8 +11,8 @@ from django.http import HttpResponse
 def home(request):
     return render(request,'weather_app/home.html')
 
-def weather(request):
-    location = weatherwise_api.get_location_data('Fargo')
+def weather(request,search_string):
+    location = weatherwise_api.get_location_data(search_string)
     weather = weatherwise_api.get_weather_data(location.coordinates)
     context = {
         'location' : location,

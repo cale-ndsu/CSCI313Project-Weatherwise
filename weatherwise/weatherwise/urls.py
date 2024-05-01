@@ -19,10 +19,11 @@ from django.urls import path
 from django.conf.urls import include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    
 ]
 
 urlpatterns += [
+    path('admin/', admin.site.urls),
     path('weather/', include('weather_app.urls'),namespace='weather_app'),
     path('account/', include('account_app.urls'),namespace='account_app')
 ]
