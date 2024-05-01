@@ -45,3 +45,6 @@ def get_weather_data(coordinates):
     weather.forecasts[day].precipitation_chance
 
     """
+
+if __name__ == '__main__':
+    location = get_location_data('Fargo')

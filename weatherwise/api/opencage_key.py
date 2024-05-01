@@ -1,4 +1,4 @@
-import os
+import os, inspect, sys
 
 KEY_LOCATION = '../key.txt'
 
@@ -15,8 +15,13 @@ def confirm_key():
     return True
 
 def get_key():
+    global KEY_LOCATION
+    path = os.path.dirname(os.path.realpath(sys.argv[0]))
+    if(path[-11:] == 'weatherwise'):    # for Django server execution
+        KEY_LOCATION = KEY_LOCATION[1:] 
     if confirm_key():
         with open(KEY_LOCATION,'r') as file:
+
             return file.readline().strip()
     return 'n/a'
 

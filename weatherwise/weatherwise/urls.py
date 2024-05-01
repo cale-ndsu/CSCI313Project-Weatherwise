@@ -23,7 +23,7 @@ urlpatterns = [
 ]
 
 urlpatterns += [
-    path('weather/', include('weather_app.urls')),
-    path('account/', include('account_app.urls'))
+    path('weather/', include('weather_app.urls'),namespace='weather_app'),
+    path('account/', include('account_app.urls'),namespace='account_app')
 ]
 

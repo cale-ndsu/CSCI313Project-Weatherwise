@@ -1,5 +1,4 @@
-import opencage_key, json, urllib.request
-
+import opencage_key, json, requests, os 
 KEY = opencage_key.get_key()
 
 class LocationData:
@@ -64,6 +63,7 @@ def valid_data(data):
 def get_json(query):
     query = format_query(query)
     web_address = 'https://api.opencagedata.com/geocode/v1/json?q=' + query + '&key=' + KEY + '&language=en&pretty=1'
-    with urllib.request.urlopen(web_address) as url:
-        data = json.load(url)
-        return data
+    r = requests.get(web_address)
+    data = r.json()
+    return data
+

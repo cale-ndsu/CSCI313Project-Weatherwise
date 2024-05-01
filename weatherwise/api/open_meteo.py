@@ -1,4 +1,4 @@
-import opencage, math, json, urllib.request
+import opencage, math, json, requests
 
 class WeatherData:
 
@@ -151,6 +151,6 @@ def get_json(lat_and_lon):
     lat = lat_and_lon[0]
     lon = lat_and_lon[1]
     web_address = 'https://api.open-meteo.com/v1/forecast?latitude=' + lat + '&longitude=' + lon + '&current=temperature_2m,apparent_temperature,weather_code,wind_speed_10m,wind_direction_10m&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch&timezone=auto'
-    with urllib.request.urlopen(web_address) as url:
-        data = json.load(url)
-        return data
+    r = requests.get(web_address)
+    data = r.json()
+    return data
