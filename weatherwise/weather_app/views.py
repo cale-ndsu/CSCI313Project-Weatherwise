@@ -9,7 +9,7 @@ from django.http import HttpResponse
 
 # Create your views here.
 def home(request):
-    return render(request,'weather_app/home.html')
+    return render(request,'home.html')
 
 def weather(request,search_string):
     location = weatherwise_api.get_location_data(search_string)

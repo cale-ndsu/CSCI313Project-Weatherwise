@@ -16,9 +16,9 @@
 
   <body>
     <h1>Weatherwise</h1>
-    <a href="{% url 'home' %}">Home</a>
-    <a href="{% url 'weather' search_string='Fargo' %}">Weather</a>
-    <a href="{% url 'user_settings' %}">User Settings</a>
+    <a href="{% url 'weather_app:home' %}">Home</a>
+    <a href="{% url 'weather_app:weather' search_string='Fargo' %}">Weather</a>
+    <a href="{% url 'account_app:user_settings' %}">User Settings</a>
     </br>
     {% block content %} {% endblock %}
     <!-- Optional JavaScript; choose one of the two! -->
