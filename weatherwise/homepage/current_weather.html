@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Current Weather | Weatherwise</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="home.html">
+          <img
+            src="images/logo.jpeg"
+            alt="Weatherwise Logo"
+            width="80"
+            height="60"
+          />
+        </a>
+        <div class="navbar-nav ms-auto">
+          <a class="nav-link" href="index.html">HOME</a>
+          <a class="nav-link" href="current_weather.html">CURRENT WEATHER</a>
+          <a class="nav-link" href="7_day_forecast.html">7-DAY FORECAST</a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container mt-5">
+      <div class="weather-card card border-primary mb-3">
+        <div class="card-header bg-primary text-white text-center">
+          CURRENT WEATHER FOR LOCATION
+        </div>
+        <div class="card-body text-primary">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="temperature-details">
+                <div class="temp-item">
+                  <h5 id="temp-display">
+                    {{ temperature }} <sup id="temp-unit">{{ temp_unit }}</sup>
+                  </h5>
+                </div>
+                <div class="temp-item">
+                  <label>Feels Like:</label>
+                  <span id="feels-like">{{ feels_like }}</span>
+                </div>
+                <div class="temp-item">
+                  <label>High Temp:</label>
+                  <span id="high-temp">{{ high_temp }}</span>
+                </div>
+                <div class="temp-item">
+                  <label>Low Temp:</label>
+                  <span id="low-temp">{{ low_temp }}</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="weather-info text-center">
+                <img
+                  src="{{ weather_icon_url }}"
+                  alt="Weather Icon"
+                  class="weather-icon"
+                />
+                <div class="weather-classification">
+                  <p id="weather-classification">
+                    {{ weather_classification }}
+                  </p>
+                  <p id="wind-speed-direction">{{ wind_speed_direction }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+ <div id="dress-recommendation-container">
+        <h1 id="dress-recommendation-title">Dress Recommendation</h1>
+        <div class="dress-content">
+            <div class="dress-card">
+                <h5>General Dress Recommendation</h5>
+                <ul>
+                    <li>Placeholder text for general recommendations.</li>
+                    <li>Another placeholder text for recommendations.</li>
+                </ul>
+            </div>
+            <div class="dress-card">
+                <h5>Primary Apparel Items to Consider</h5>
+                <ul>
+                    <li>Placeholder text for primary apparel.</li>
+                    <li>Additional placeholder for primary items.</li>
+                </ul>
+                <h5>Secondary Apparel Items to Consider</h5>
+                <ul>
+                    <li>Placeholder text for secondary apparel.</li>
+                    <li>More placeholder for secondary items.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+      
+    </main>
+    
+
+    <footer class="footer bg-primary text-white text-center py-3">
+      <div class="container">
+        CSCI-313 Team Project by: Seid Ahmed, Cale Voglewede, Yannick Vetter ©
+        2024
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

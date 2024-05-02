@@ -1,7 +1,9 @@
 html,
 body {
+    
     height: 100%;
     margin: 0;
+    padding: 0;
     font-family: "Arial", sans-serif;
     background-image: url('images/background3.jpeg');
     background-size: cover;
@@ -10,6 +12,10 @@ body {
     display: flex;
     flex-direction: column;
 }
+ .container {
+     flex: 1;
+     /* Allows container to expand and fill available space, pushing the footer */
+ }
 
 @keyframes moveBackground {
     0% {
@@ -39,16 +45,15 @@ h4 {
     color: black;
 }
 
-.img-thumbnail {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
+.searchbar-directions {
+    font-size: 1rem;
+    color: black;
+    font-weight: bold;
+    margin-top: 5.5rem;
+    
 }
 
-.footer {
-    background-color: #007BFF;
-    color: white;
-}
+
 
 .card {
     background: rgba(255, 255, 255, 0.8);
@@ -64,4 +69,118 @@ h4 {
 .btn-primary {
     background-color: #007BFF;
     border: none;
+}
+
+
+
+/* current_weather styling */
+
+.main-container {
+    flex: 1;
+  
+    padding: 20px;
+   
+}
+
+.navbar {
+    background-color: #007bff;
+}
+
+.weather-card {
+    max-width: 1200px;
+    margin: 20px auto;
+    
+    border-radius: 10px;
+}
+
+.temperature-details,
+.weather-info {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px blue;
+   
+}
+
+
+ /* 7 day forecast */
+          .navbar {
+              background-color: #007bff;
+          }
+    
+          .forecast-week {
+              display: flex;
+              justify-content: center;
+              flex-wrap: wrap;
+              padding: 20px;
+              gap: 10px;
+          }
+    
+          .forecast-card {
+              background-color: white;
+              padding: 20px;
+              border-radius: 10px;
+              box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+              text-align: center;
+              width: 150px;
+             
+          }
+    
+          .forecast-card img {
+              width: 50px;
+              height: auto;
+          }
+
+ /* Dress Recommendation */
+        #dress-recommendation-container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    
+        #dress-recommendation-title {
+            text-align: center;
+            font-size: 24px;
+            text-decoration: underline;
+            margin-bottom: 20px;
+            
+        }
+    
+        .dress-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px blue; 
+            margin-bottom: 20px;
+           
+        }
+    
+        .dress-content {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            
+        }
+    
+        .dress-section h3 {
+            text-decoration: underline;
+        }
+    
+        .dress-section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+    
+        .dress-section ul li {
+            padding: 5px 0;
+        }
+
+.footer {
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
 }
