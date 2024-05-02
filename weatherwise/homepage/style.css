@@ -177,6 +177,44 @@ h4 {
             padding: 5px 0;
         }
 
+/* contact page style */
+.contact-page .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    
+}
+
+.contact-page .contact-form {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 500px;
+   
+}
+
+.contact-page .contact-form h3 {
+    text-align: center;
+    color: #007bff;
+}
+
+.contact-page .contact-form .form-control {
+    margin-bottom: 10px;
+
+}
+
+.contact-page .contact-form .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    width: 100%;
+   
+}
+
+
+
 .footer {
     background-color: #007bff;
     color: white;
