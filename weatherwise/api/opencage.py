@@ -5,7 +5,7 @@ class LocationData:
     def __init__(self, query):
         data = get_json(query)
         if valid_data(data) == False:
-            self.coordinates = ""
+            self.coordinates = "N/A,N/A"
             self.name = ""
             self.is_night = False
         else:
