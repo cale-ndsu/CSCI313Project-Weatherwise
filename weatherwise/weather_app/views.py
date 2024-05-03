@@ -22,9 +22,11 @@ def weather(request):
     if location.coordinates == "N/A,N/A":
         return redirect('../')
     weather = weatherwise_api.get_weather_data(location.coordinates)
+    feel_temp =  weather.current.temperature_apparent
     context = {
         'location' : location,
-        'weather' : weather
+        'weather' : weather,
+        'feel_temp' : feel_temp,
     }
     return render(request,'weather_app/weather.html', context=context)
 

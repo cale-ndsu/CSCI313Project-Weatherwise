@@ -65,20 +65,63 @@
             <div class="dress-card">
                 <h5>General Dress Recommendation</h5>
                 <ul>
-                    <li>Placeholder text for general recommendations.</li>
-                    <li>Another placeholder text for recommendations.</li>
+                {% if feel_temp < 0 %}
+                    <p>It is very cold. Dress appropriately.</p>
+                {% elif feel_temp < 20 %}
+                    <p>It is quite cold. Dress appropriately.</p>
+                {% elif feel_temp < 40 %}
+                    <p>It is cold. Dress appropriately.</p>
+                {% elif feel_temp < 60 %}
+                    <p>It is brisk. Dress appropriately.</p>
+                {% elif feel_temp < 80 %}
+                    <p>It is warm. Dress appropriately.</p>
+                {% else %}
+                    <p>It is hot. Dress appropriately.</p>
+                {% endif %}
                 </ul>
             </div>
             <div class="dress-card">
                 <h5>Primary Apparel Items to Consider</h5>
                 <ul>
-                    <li>Placeholder text for primary apparel.</li>
-                    <li>Additional placeholder for primary items.</li>
+                {% if feel_temp < 0 %}
+                <li>Placeholder text for primary apparel for very cold.</li>
+                {% elif feel_temp < 20 %}
+                <li>Placeholder text for primary apparel for quite cold.</li>
+                {% elif feel_temp < 40 %}                   
+                <li>Placeholder text for primary apparel for cold.</li>
+                {% elif feel_temp < 60 %}
+                <li>Placeholder text for primary apparel for brisk.</li>
+                {% elif feel_temp < 80 %}
+                <li>Placeholder text for primary apparel for warm.</li>
+                {% else %}
+                <li>Placeholder text for secondary apparel for hot.</li>
+                {% endif %}
+                {% if weather.current.weather_classification == 'Drizzle' or weather.current.weather_classification == 'Freezing Drizzle' or weather.current.weather_classification == 'Light Rain' or weather.current.weather_classification == 'Rain' or weather.current.weather_classification == 'Heavy Rain' or weather.current.weather_classification == 'Freezing Rain' %}
+                    <li>Close-Toe Shoes</li>
+                {% endif %}
                 </ul>
                 <h5>Secondary Apparel Items to Consider</h5>
                 <ul>
-                    <li>Placeholder text for secondary apparel.</li>
-                    <li>More placeholder for secondary items.</li> 
+                {% if feel_temp < 0 %}
+                <li>Placeholder text for secondary apparel for very cold.</li>
+                {% elif feel_temp < 20 %}
+                <li>Placeholder text for secondary apparel for quite cold.</li>
+                {% elif feel_temp < 40 %}                   
+                <li>Placeholder text for secondary appare for cold.</li>
+                {% elif feel_temp < 60 %}
+                <li>Placeholder text for secondary apparel for brisk.</li>
+                {% elif feel_temp < 80 %}
+                <li>Placeholder text for secondary apparel for warm.</li>
+                {% else %}
+                <li>Placeholder text for secondary apparel for hot.</li>
+                {% endif %}
+                {% if feel_temp > 40 and feel_temp < 60 and weather.current.wind_speed > 20 %}
+                <li>Windbreaker</li>
+                {% endif %}
+                {% if weather.current.weather_classification == 'Drizzle' or weather.current.weather_classification == 'Freezing Drizzle' or weather.current.weather_classification == 'Light Rain' or weather.current.weather_classification == 'Rain' or weather.current.weather_classification == 'Heavy Rain' or weather.current.weather_classification == 'Freezing Rain' %}
+                    <li>Waterproof Coat</li>
+                    <li>Umbrella</li>
+                {% endif %}
                 </ul>
             </div>
         </div>
