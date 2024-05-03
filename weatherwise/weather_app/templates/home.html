@@ -1,0 +1,23 @@
+{% extends 'base.html' %} {% block content %} 
+<main class="container mt-4">
+    <div class="text-center">
+        <h1>Weatherwise</h1>
+        <h5>Your simplified weather information source</h5>
+        <p class="searchbar-directions">Enter a location to get started</p>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <form class="d-flex" action="{% url 'weather_app:weather' %}" method="GET">
+                        <input class="form-control me-2" type="text" name="search" placeholder="Search locations" aria-label="Search">
+                        <button type="submit" class="btn btn-outline-primary">Search</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+{% endblock %}
