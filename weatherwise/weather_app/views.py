@@ -10,7 +10,11 @@ from django.shortcuts import redirect
 
 # Create your views here.
 def home(request):
-    return render(request,'home.html')
+    profiles = get_profiles()
+    context = {
+        'profiles' : profiles
+    }
+    return render(request,'home.html', context=context)
 
 def weather(request):
     search_string = request.GET.get('search')
@@ -23,3 +27,11 @@ def weather(request):
         'weather' : weather
     }
     return render(request,'weather_app/weather.html', context=context)
+
+from account_app.models import Profile
+
+def get_profiles():
+    model = Profile
+    profiles = Profile.objects.all()
+    profile_list = list(profiles)
+    return profile_list

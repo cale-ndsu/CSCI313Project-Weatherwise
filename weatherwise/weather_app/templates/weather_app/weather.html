@@ -86,7 +86,7 @@
     </main>
 
 
-    <main class="container mt-5">
+    <div class="container mt-5">
           <!-- Header for the forecast section -->
         <div class="card-header bg-primary text-white text-center">
           7-DAY FORECAST FOR</br>{{location.name}}
@@ -95,14 +95,14 @@
         <div class="forecast-week">
             {%for key, value in weather.forecasts.items %}
             <div class="forecast-card">
-                <h5>{{value.date}}</h5>
+                <h6>{{value.date}}</h6>
                 <img src="http://via.placeholder.com/50x50" alt="Weather Icon">
-                <h3> High:{{value.temperature_max}}</h3>
-                <h3> Low: {{value.temperature_min}}</h3>
+                <p><span> High:{{value.temperature_max}}</span><p>
+                <p></span> Low: {{value.temperature_min}}</span></p>
                 <p>{{value.weather_classification}}</p>
                 <p>Chance of Precipitation:</br> {{value.precipitation_chance}} %</p>
             </div>
             {% endfor %}
         </div>
-    </main>
+    </div>
 {% endblock %}

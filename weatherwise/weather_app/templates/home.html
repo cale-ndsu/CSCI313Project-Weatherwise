@@ -2,8 +2,8 @@
 <main class="container mt-4">
     <div class="text-center">
         <h1>Weatherwise</h1>
-        <h5>Your simplified weather information source</h5>
-        <p class="searchbar-directions">Enter a location to get started</p>
+        <h5>Your Simplified Weather Information Source</h5>
+        <p class="searchbar-directions">Enter a Location to get Started</p>
     </div>
     <div class="row justify-content-center">
         <div class="col-12 col-md-8 col-lg-6">
@@ -17,7 +17,29 @@
             </div>
         </div>
     </div>
-</main>
+    <div id="profile_text" class="text-center">
+        {% if user.is_authenticated %}
+        {% for profile in profiles %}
+        {% if user == profile.user %}
+        <form action="{% url 'weather_app:weather' %}" method="GET" id="hidden_form">
+        <input type="hidden" id="preferred_location" name="search" value="{{profile.location_name}}">
+        </form>
+        <b><span> Or go to your preferred location</span>
+        <a onclick="return getPreferredLocation()" id="location_script" href="#!">here</a>
 
+        <span> at: </span></b>
+        <p class="searchbar-profile">{{profile.location_name}}</p>
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+    </div>
+</main>
+<script>
+
+function getPreferredLocation(){
+    document.getElementById("hidden_form").submit();
+}
+
+</script>
 
 {% endblock %}
