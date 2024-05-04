@@ -66,17 +66,17 @@
                 <h5>General Dress Recommendation</h5>
                 <ul>
                 {% if feel_temp < 0 %}
-                    <p>It is very cold. Bundle up with a heavy coat, scarf, gloves, and boots.</p>
+                    <p>It is very cold. Bundle up with a heavy coat, scarf, gloves, and boots. At this temperature, skin exposure to cold is dangerous.</p>
                 {% elif feel_temp < 20 %}
-                    <p>It is quite cold. Layer up with a warm sweater, jacket, and hat.</p>
+                    <p>It is quite cold. Layer up with a warm sweater, jacket, and hat. At this temperature, skin exposure to cold is risky.</p>
                 {% elif feel_temp < 40 %}
-                    <p>It is cold. Wear a medium-weight jacket or coat with a long-sleeve shirt.</p>
+                    <p>It is cold. Wear a medium-weight jacket or coat with a long-sleeve shirt. At this temperature, skin exposure to cold should be limited.</p>
                 {% elif feel_temp < 60 %}
-                    <p>It is brisk. Put on a light jacket, jeans, and closed-toe shoes.</p>
+                    <p>It is brisk. Put on a light jacket, jeans, and closed-toe shoes. At this temperature, skin exposure to cold may cause discomfort.</p>
                 {% elif feel_temp < 80 %}
-                    <p>It is warm. Opt for a t-shirt, jeans, and comfortable shoes.</p>
+                    <p>It is warm. Opt for a t-shirt, jeans, and comfortable shoes. Enjoy the pleasant weather!</p>
                 {% else %}
-                    <p>It is hot. Wear light and breathable clothing like shorts, a tank top, and sandals.</p>
+                    <p>It is hot. Wear light and breathable clothing like shorts, a tank top, and sandals. Stay cool!</p>
                 {% endif %}
                 </ul>
             </div>
@@ -84,17 +84,17 @@
                 <h5>Primary Apparel Items to Consider</h5>
                 <ul>
                 {% if feel_temp < 0 %}
-                <li>Placeholder text for primary apparel for very cold.</li>
+                <li>Bundle up with a heavy coat, scarf, gloves, and boots.</li>
                 {% elif feel_temp < 20 %}
-                <li>Placeholder text for primary apparel for quite cold.</li>
+                <li>Layer up with a warm sweater, jacket, and hat.</li>
                 {% elif feel_temp < 40 %}                   
-                <li>Placeholder text for primary apparel for cold.</li>
+                <li>Wear a medium-weight jacket or coat with a long-sleeve shirt.</li>
                 {% elif feel_temp < 60 %}
-                <li>Placeholder text for primary apparel for brisk.</li>
+                <li>Put on a light jacket, jeans, and closed-toe shoes.</li>
                 {% elif feel_temp < 80 %}
-                <li>Placeholder text for primary apparel for warm.</li>
+                <li>Opt for a t-shirt, jeans, and comfortable shoes.</li>
                 {% else %}
-                <li>Placeholder text for secondary apparel for hot.</li>
+                <li>Wear light and breathable clothing like shorts, a tank top, and sandals.</li>
                 {% endif %}
                 {% if weather.current.weather_classification == 'Drizzle' or weather.current.weather_classification == 'Freezing Drizzle' or weather.current.weather_classification == 'Light Rain' or weather.current.weather_classification == 'Rain' or weather.current.weather_classification == 'Heavy Rain' or weather.current.weather_classification == 'Freezing Rain' %}
                     <li>Close-Toe Shoes</li>
@@ -103,17 +103,17 @@
                 <h5>Secondary Apparel Items to Consider</h5>
                 <ul>
                 {% if feel_temp < 0 %}
-                <li>Placeholder text for secondary apparel for very cold.</li>
+                <li>Consider thermal underwear, wool socks, and a warm hat.</li>
                 {% elif feel_temp < 20 %}
-                <li>Placeholder text for secondary apparel for quite cold.</li>
+                <li>Wear thicker socks, insulated gloves, and a scarf.</li>
                 {% elif feel_temp < 40 %}                   
-                <li>Placeholder text for secondary appare for cold.</li>
+                <li>Consider layering with thermal tops, sweaters, and fleece-lined pants.</li>
                 {% elif feel_temp < 60 %}
-                <li>Placeholder text for secondary apparel for brisk.</li>
+                <li>Opt for a lightweight jacket or windbreaker.</li>
                 {% elif feel_temp < 80 %}
-                <li>Placeholder text for secondary apparel for warm.</li>
+                <li>Wear a light sweater or hoodie for cooler evenings.</li>
                 {% else %}
-                <li>Placeholder text for secondary apparel for hot.</li>
+                <li>Avoid heavy clothing and opt for breathable fabrics.</li>
                 {% endif %}
                 {% if feel_temp > 40 and feel_temp < 60 and weather.current.wind_speed > 20 %}
                 <li>Windbreaker</li>
