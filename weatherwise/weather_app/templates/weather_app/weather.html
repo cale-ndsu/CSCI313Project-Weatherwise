@@ -16,15 +16,15 @@
                 </div>
                 <div class="temp-item">
                   <label>Feels Like:</label>
-                  <span id="feels-like">{{ weather.current.temperature_apparent }} </span>
+                  <span id="feels-like">{{ weather.current.temperature_apparent }}&ensp;F </span>
                 </div>
                 <div class="temp-item">
                   <label>High Temp:</label>
-                  <span id="high-temp">{{ weather.current.temperature_max }} </span>
+                  <span id="high-temp">{{ weather.current.temperature_max }}&ensp;F </span>
                 </div>
                 <div class="temp-item">
                   <label>Low Temp:</label>
-                  <span id="low-temp">{{ weather.current.temperature_min }} </span>
+                  <span id="low-temp">{{ weather.current.temperature_min }}&ensp;F </span>
                 </div>
               </div>
             </div>
@@ -162,8 +162,8 @@
                 {% else %}
                 <img src="http://via.placeholder.com/50x50" alt="Weather Icon">
                 {% endif %}
-                <p><span> High: {{value.temperature_max}}</span><p>
-                <p></span> Low: {{value.temperature_min}}</span></p>
+                <p><span> High: {{value.temperature_max}}&ensp;F</span><p>
+                <p></span> Low: {{value.temperature_min}}&ensp;F</span></p>
                 <p>{{value.weather_classification}}</p>
                 <p>Chance of Precipitation:</br> {{value.precipitation_chance}} %</p>
             </div>

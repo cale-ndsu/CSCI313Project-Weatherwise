@@ -37,3 +37,10 @@ def get_profiles():
     profiles = Profile.objects.all()
     profile_list = list(profiles)
     return profile_list
+
+def about(request):
+    profiles = get_profiles()
+    context = {
+        'profiles' : profiles
+    }
+    return render(request,'about.html', context=context)

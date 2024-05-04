@@ -30,18 +30,8 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'weather_app:home' %}">HOME</a>
                 </li>
-                <a class="nav-link" href="#">CURRENT WEATHER</a>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">FORECAST</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">SETTINGS</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">ABOUT</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="contact.html">CONTACT</a>
+                    <a class="nav-link" href="{% url 'weather_app:about' %}">ABOUT</a>
                 </li>
                 {% if user.is_authenticated %}
                  <li class="nav-item">
@@ -64,7 +54,10 @@
 
   <footer class="footer mt-auto py-3 bg-primary text-center">
     <div class="container">
-         CSCI-313 Team Project by: Seid Ahmed, Cale Voglewede, Yannick Vetter © May 3, 2024
+         CSCI313 Team Project by Seid Ahmed, Cale Voglewede, Yannick Vetter © May 3, 2024</br></br>
+         Weather API Provided by Open-Meteo</br>
+         Geocoding API Provided by OpenCage</br>
+         Weather Icons by erikflowers on Github</br>
     </div>
 </footer>
 <script>

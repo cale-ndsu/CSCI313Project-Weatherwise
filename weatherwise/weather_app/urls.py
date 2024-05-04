@@ -7,5 +7,5 @@ app_name = "weather_app"
 urlpatterns = [
     path('', views.home, name='home'),
     path('information/', views.weather, name = 'weather'),
-    #path('account/user_settings', account_views.user_settings, name="user_settings")
+    path('about/', views.about, name = 'about'),
 ]
