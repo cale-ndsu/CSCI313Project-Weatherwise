@@ -1,4 +1,5 @@
 {% extends 'base.html' %} {% block content %}
+{% load static %}
  <main class="container mt-5">
       <div class="weather-card card border-primary mb-3">
         <div class="card-header bg-primary text-white text-center">
@@ -29,20 +30,27 @@
             </div>
             <div class="col-md-4">
               <div class="weather-info text-center">
-
-                <img
+                <img id="main_icon"
                 {% if weather.current.weather_classification == 'Clear' or weather.current.weather_classification == 'Mostly Clear' %}
-                src="{{ weather_icon_url }}"
+                {% if location.is_night == True %}
+                src="{% static '/icons/clear_night.png'  %}"
+                {% else %}
+                src="{% static '/icons/clear_day.png'  %}"
+                {% endif %}
                 {% elif weather.current.weather_classification == 'Partly Cloudy' %}
-                src="{{ weather_icon_url }}"
+                {% if location.is_night == True %}
+                src="{% static '/icons/partlycloudy_night.png'  %}"
+                {% else %}
+                src="{% static '/icons/partlycloudy_day.png'  %}"
+                {% endif %}
                 {% elif weather.current.weather_classification == 'Overcast' or weather.current.weather_classification == 'Fog' %}
-                src="{{ weather_icon_url }}"
+                src="{% static '/icons/cloudy.png'  %}"
                 {% elif weather.current.weather_classification == 'Drizzle' or weather.current.weather_classification == 'Freezing Drizzle' or weather.current.weather_classification == 'Light Rain' or weather.current.weather_classification == 'Rain' or weather.current.weather_classification == 'Heavy Rain' or weather.current.weather_classification == 'Freezing Rain' %}
-                src="{{ weather_icon_url }}"
+                src="{% static '/icons/rain.png'  %}"
                 {% elif weather.current.weather_classification == 'Light Snow' or weather.current.weather_classification == 'Snow' or weather.current.weather_classification == 'Heavy Snow' or weather.current.weather_classification == 'Snow Grains' %}
-                src="{{ weather_icon_url }}"
+                src="{% static '/icons/snow.png'  %}"
                 {% elif weather.current.weather_classification == 'Thunderstorm' or weather.current.weather_classification == 'Hailstorm' %}
-                src="{{ weather_icon_url }}" 
+                src="{% static '/icons/thunderstorm.png'  %}"
                 {% endif %}
                   
                   alt="Weather Icon"
@@ -139,8 +147,22 @@
             {%for key, value in weather.forecasts.items %}
             <div class="forecast-card">
                 <h6>{{value.date}}</h6>
+                {% if value.weather_classification == 'Clear' or value.weather_classification == 'Mostly Clear' %}
+                <img src="{% static '/icons/clear_day.png'  %}" alt="Weather Icon">
+                {% elif value.weather_classification == 'Partly Cloudy' %}
+                <img src="{% static '/icons/partlycloudy_day.png'  %}" alt="Weather Icon">
+                {% elif value.weather_classification == 'Overcast' or value.weather_classification == 'Fog' %}
+                <img src="{% static '/icons/cloudy.png'  %}" alt="Weather Icon">
+                {% elif value.weather_classification == 'Drizzle' or value.weather_classification == 'Freezing Drizzle' or value.weather_classification == 'Light Rain' or value.weather_classification == 'Rain' or value.weather_classification == 'Heavy Rain' or value.weather_classification == 'Freezing Rain' %}
+                <img src="{% static '/icons/rain.png'  %}"alt="Weather Icon">
+                {% elif value.weather_classification == 'Light Snow' or value.weather_classification == 'Snow' or value.weather_classification == 'Heavy Snow' or value.weather_classification == 'Snow Grains' %}
+                <img src="{% static '/icons/snow.png'  %}" alt="Weather Icon">
+                {% elif value.weather_classification == 'Thunderstorm' or value.weather_classification == 'Hailstorm' %}
+                <img src="{% static '/icons/thunderstorm.png'  %}" alt="Weather Icon">
+                {% else %}
                 <img src="http://via.placeholder.com/50x50" alt="Weather Icon">
-                <p><span> High:{{value.temperature_max}}</span><p>
+                {% endif %}
+                <p><span> High: {{value.temperature_max}}</span><p>
                 <p></span> Low: {{value.temperature_min}}</span></p>
                 <p>{{value.weather_classification}}</p>
                 <p>Chance of Precipitation:</br> {{value.precipitation_chance}} %</p>
